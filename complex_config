@@ -1,0 +1,15 @@
+server {
+  listen   80;
+  server_name foo.com;
+  root /home/ubuntu/sites/foo/;
+
+  location / {
+     proxy_pass http://foobar:8080/;
+  }
+
+  location ~ \.(gif|jpg|png)$ {
+     gzip off;
+     root /data/images;
+  }
+
+}
